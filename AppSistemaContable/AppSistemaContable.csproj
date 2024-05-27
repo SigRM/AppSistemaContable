@@ -1,0 +1,480 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9E23C6F4-DD27-4B35-A598-4D0396E7173A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>AppSistemaContable</RootNamespace>
+    <AssemblyName>AppSistemaContable</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.17.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.17\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagingToolkit.QRCode">
+      <HintPath>E:\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1620.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\BLLColaboradores.cs" />
+    <Compile Include="BLL\BLLControlMarcas.cs" />
+    <Compile Include="BLL\BLLDeduccionesPercepcionesColaborador.cs" />
+    <Compile Include="BLL\BLLDeduccionPercepciones.cs" />
+    <Compile Include="BLL\BLLEmpresa.cs" />
+    <Compile Include="BLL\BLLPlanillaDetalle.cs" />
+    <Compile Include="BLL\BLLPlanillaEncabezado.cs" />
+    <Compile Include="BLL\BLLPlanillaPago.cs" />
+    <Compile Include="BLL\BLLPuestos.cs" />
+    <Compile Include="BLL\BLLRoles.cs" />
+    <Compile Include="BLL\BLLSolicitudVacaciones.cs" />
+    <Compile Include="Connected Services\BCCR\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\DALDeduccionesPercepcionesColaborador.cs" />
+    <Compile Include="DAL\DALPlanillaPago.cs" />
+    <Compile Include="DAL\DALColaboradores.cs" />
+    <Compile Include="DAL\DALControlMarcas.cs" />
+    <Compile Include="DAL\DALDeduccionPercepciones.cs" />
+    <Compile Include="DAL\DALEmpresa.cs" />
+    <Compile Include="DAL\DALPlanillaDetalle.cs" />
+    <Compile Include="DAL\DALPlanillaEncabezado.cs" />
+    <Compile Include="DAL\DALPuestos.cs" />
+    <Compile Include="DAL\DALRoles.cs" />
+    <Compile Include="DAL\DALSolicitudVacaciones.cs" />
+    <Compile Include="Entidades\Colaboradores.cs" />
+    <Compile Include="Entidades\ControlMarcas.cs" />
+    <Compile Include="Entidades\DeduccionesPercepcionesColaborador.cs" />
+    <Compile Include="Entidades\DeduccionPercepciones.cs" />
+    <Compile Include="Entidades\Dolar.cs" />
+    <Compile Include="Entidades\Empresa.cs" />
+    <Compile Include="Entidades\PlanillaDetalle.cs" />
+    <Compile Include="Entidades\PlanillaEncabezado.cs" />
+    <Compile Include="Entidades\PlanillaPago.cs" />
+    <Compile Include="Entidades\Puestos.cs" />
+    <Compile Include="Entidades\Roles.cs" />
+    <Compile Include="Entidades\ServiceBCCR.cs" />
+    <Compile Include="Entidades\SolicitudesVacaciones.cs" />
+    <Compile Include="Enumeradores\Enums.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IColaboradorBLL.cs" />
+    <Compile Include="Interfaces\IColaboradorDAL.cs" />
+    <Compile Include="Interfaces\IControlMarcasBLL.cs" />
+    <Compile Include="Interfaces\IControlMarcasDAL.cs" />
+    <Compile Include="Interfaces\IDeduccionesPercepcionesColaboradorBLL.cs" />
+    <Compile Include="Interfaces\IDeduccionesPercepcionesColaboradorDAL.cs" />
+    <Compile Include="Interfaces\IDeduccionPercepcionesBLL.cs" />
+    <Compile Include="Interfaces\IDeduccionPercepcionesDAL.cs" />
+    <Compile Include="Interfaces\IEmpresaBLL.cs" />
+    <Compile Include="Interfaces\IEmpresaDAL.cs" />
+    <Compile Include="Interfaces\IPlanillaDetalleBLL.cs" />
+    <Compile Include="Interfaces\IPlanillaDetalleDAL.cs" />
+    <Compile Include="Interfaces\IPlanillaEncabezadoBLL.cs" />
+    <Compile Include="Interfaces\IPlanillaEncabezadoDAL.cs" />
+    <Compile Include="Interfaces\IPlanillaPagoBLL.cs" />
+    <Compile Include="Interfaces\IPlanillaPagoDAL.cs" />
+    <Compile Include="Interfaces\IPuestosBLL.cs" />
+    <Compile Include="Interfaces\IPuestosDAL.cs" />
+    <Compile Include="Interfaces\IRolesBLL.cs" />
+    <Compile Include="Interfaces\IRolesDAL.cs" />
+    <Compile Include="Interfaces\ISolicitudVacacionesBLL.cs" />
+    <Compile Include="Interfaces\ISolucitudVacacionesDAL.cs" />
+    <Compile Include="Persistencia\DataBase.cs" />
+    <Compile Include="Persistencia\FactoryConexion.cs" />
+    <Compile Include="Persistencia\FactoryDataBase.cs" />
+    <Compile Include="Persistencia\IDataBase.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="UI\Mantenimientos\FrmDeduccionesPercepciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmDeduccionesPercepciones.Designer.cs">
+      <DependentUpon>FrmDeduccionesPercepciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmDeduccionPercepcionColab.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmDeduccionPercepcionColab.Designer.cs">
+      <DependentUpon>FrmDeduccionPercepcionColab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmEncabezado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmEncabezado.Designer.cs">
+      <DependentUpon>FrmEncabezado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmPlanillaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmPlanillaPago.Designer.cs">
+      <DependentUpon>FrmPlanillaPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmPuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmPuestos.Designer.cs">
+      <DependentUpon>FrmPuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Procesos\FrmAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Procesos\FrmAcercaDe.Designer.cs">
+      <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Procesos\FrmCalculoPlanilla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Procesos\FrmCalculoPlanilla.Designer.cs">
+      <DependentUpon>FrmCalculoPlanilla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Procesos\FrmColaboradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Procesos\FrmColaboradores.Designer.cs">
+      <DependentUpon>FrmColaboradores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Procesos\FrmControlMarcas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Procesos\FrmControlMarcas.Designer.cs">
+      <DependentUpon>FrmControlMarcas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmEmpresa.Designer.cs">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmSolicitudVacaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Mantenimientos\FrmSolicitudVacaciones.Designer.cs">
+      <DependentUpon>FrmSolicitudVacaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Procesos\FrmLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Procesos\FrmLogIn.Designer.cs">
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\DsFuenteDatods.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsFuenteDatods.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteComprobante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteComprobante.Designer.cs">
+      <DependentUpon>FrmReporteComprobante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReportePlanillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReportePlanillas.Designer.cs">
+      <DependentUpon>FrmReportePlanillas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteSolicitudVacaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\FrmReporteSolicitudVacaciones.Designer.cs">
+      <DependentUpon>FrmReporteSolicitudVacaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilitarios\EnviarCorreo.cs" />
+    <Compile Include="Utilitarios\ExportarGrid.cs" />
+    <Compile Include="Utilitarios\JSONGenericObject.cs" />
+    <Compile Include="Utilitarios\LeerDatos.cs" />
+    <Compile Include="Utilitarios\Utiles.cs" />
+    <Compile Include="Utilities\FormatStrings.cs" />
+    <Compile Include="Utilities\JSONGenericList.cs" />
+    <Compile Include="Utilities\ProperCase.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Mantenimientos\FrmDeduccionesPercepciones.resx">
+      <DependentUpon>FrmDeduccionesPercepciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Mantenimientos\FrmDeduccionPercepcionColab.resx">
+      <DependentUpon>FrmDeduccionPercepcionColab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Mantenimientos\FrmEmpresa.resx">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Mantenimientos\FrmEncabezado.resx">
+      <DependentUpon>FrmEncabezado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Mantenimientos\FrmPlanillaPago.resx">
+      <DependentUpon>FrmPlanillaPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Mantenimientos\FrmPuestos.resx">
+      <DependentUpon>FrmPuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Mantenimientos\FrmSolicitudVacaciones.resx">
+      <DependentUpon>FrmSolicitudVacaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Procesos\FrmAcercaDe.resx">
+      <DependentUpon>FrmAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Procesos\FrmCalculoPlanilla.resx">
+      <DependentUpon>FrmCalculoPlanilla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Procesos\FrmColaboradores.resx">
+      <DependentUpon>FrmColaboradores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Procesos\FrmControlMarcas.resx">
+      <DependentUpon>FrmControlMarcas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Procesos\FrmLogIn.resx">
+      <DependentUpon>FrmLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\FrmReporteComprobante.resx">
+      <DependentUpon>FrmReporteComprobante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\FrmReportePlanillas.resx">
+      <DependentUpon>FrmReportePlanillas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\FrmReporteSolicitudVacaciones.resx">
+      <DependentUpon>FrmReporteSolicitudVacaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\rptComprobante.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\rptPlanilla.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\rptSolicitudVacaciones.rdlc" />
+    <None Include="Connected Services\BCCR\wsindicadoreseconomicos.wsdl" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="UI\Reportes\DsFuenteDatods.xsc">
+      <DependentUpon>DsFuenteDatods.xsd</DependentUpon>
+    </None>
+    <None Include="UI\Reportes\DsFuenteDatods.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsFuenteDatods.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="UI\Reportes\DsFuenteDatods.xss">
+      <DependentUpon>DsFuenteDatods.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="JSON\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Imagenes\xicon.jpg" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\Image1.png" />
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Connected Services\BCCR\wsindicadoreseconomicos.disco" />
+    <None Include="Connected Services\BCCR\configuration91.svcinfo" />
+    <None Include="Connected Services\BCCR\configuration.svcinfo" />
+    <None Include="Connected Services\BCCR\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Imagenes\add_file-48.png" />
+    <Content Include="Imagenes\add_folder-48.png" />
+    <Content Include="Imagenes\add_link-48.png" />
+    <Content Include="Imagenes\add_property-48.png" />
+    <Content Include="Imagenes\Add_Row-48.png" />
+    <Content Include="Imagenes\Add_Row-64.png" />
+    <Content Include="Imagenes\add_user-64.png" />
+    <Content Include="Imagenes\administrative_tools-48.png" />
+    <Content Include="Imagenes\administrative_tools-64.png" />
+    <Content Include="Imagenes\background.jpg" />
+    <Content Include="Imagenes\bill-64.png" />
+    <Content Include="Imagenes\bottom_navigation_toolbar-48.png" />
+    <Content Include="Imagenes\brush-64.png" />
+    <Content Include="Imagenes\business_contact-64.png" />
+    <Content Include="Imagenes\camera_addon-128.png" />
+    <Content Include="Imagenes\camera_identification-128.png" />
+    <Content Include="Imagenes\cancel-32.png" />
+    <Content Include="Imagenes\cancel-48.png" />
+    <Content Include="Imagenes\cancel-64.png" />
+    <Content Include="Imagenes\cancel_file-48.png" />
+    <Content Include="Imagenes\cash_receiving-48.png" />
+    <Content Include="Imagenes\change_user-64.png" />
+    <Content Include="Imagenes\checked_user-48.png" />
+    <Content Include="Imagenes\checked_user-64.png" />
+    <Content Include="Imagenes\collaborator-26.png" />
+    <Content Include="Imagenes\collaborator-32.png" />
+    <Content Include="Imagenes\collaborator-64.png" />
+    <Content Include="Imagenes\compact_camera-128.png" />
+    <Content Include="Imagenes\conference-64.png" />
+    <Content Include="Imagenes\content-48.png" />
+    <Content Include="Imagenes\dashboard-48.png" />
+    <Content Include="Imagenes\delete-48.png" />
+    <Content Include="Imagenes\delete_file-48.png" />
+    <Content Include="Imagenes\delete_link-48.png" />
+    <Content Include="Imagenes\delete_property-48.png" />
+    <Content Include="Imagenes\Delete_Row-48.png" />
+    <Content Include="Imagenes\Delete_Row-64.png" />
+    <Content Include="Imagenes\details-48.png" />
+    <Content Include="Imagenes\dna_helix-48.png" />
+    <Content Include="Imagenes\dna_helix-64.png" />
+    <Content Include="Imagenes\doctor_suitecase-128.png" />
+    <Content Include="Imagenes\doctor_suitecase-48.png" />
+    <Content Include="Imagenes\doctor_suitecase-64.png" />
+    <Content Include="Imagenes\document-64.png" />
+    <Content Include="Imagenes\edit_file-48.png" />
+    <Content Include="Imagenes\edit_property-48.png" />
+    <Content Include="Imagenes\edit_user-64.png" />
+    <Content Include="Imagenes\excel-48.png" />
+    <Content Include="Imagenes\excel-64.png" />
+    <Content Include="Imagenes\fondoutn.jpg" />
+    <Content Include="Imagenes\fuegoicon.jpg" />
+    <Content Include="Imagenes\generic_sorting-48.png" />
+    <Content Include="Imagenes\generic_sorting-64.png" />
+    <Content Include="Imagenes\globe-48.png" />
+    <Content Include="Imagenes\globe-64.png" />
+    <Content Include="Imagenes\help-48.png" />
+    <Content Include="Imagenes\left_round-48.png" />
+    <Content Include="Imagenes\left_round-64.png" />
+    <Content Include="Imagenes\login-48.png" />
+    <None Include="Imagenes\logo0.1.PNG" />
+    <Content Include="Imagenes\logout-48.png" />
+    <Content Include="Imagenes\menu-48.png" />
+    <Content Include="Imagenes\MS Word21.png" />
+    <Content Include="Imagenes\MSWordAcepted.png" />
+    <Content Include="Imagenes\ok-48.png" />
+    <Content Include="Imagenes\ok-64.png" />
+    <Content Include="Imagenes\one_note-48.png" />
+    <Content Include="Imagenes\outlook-48.png" />
+    <Content Include="Imagenes\overview_pages_4-64.png" />
+    <Content Include="Imagenes\parallel_tasks-64.png" />
+    <Content Include="Imagenes\powerpoint-48.png" />
+    <Content Include="Imagenes\publisher-48.png" />
+    <Content Include="Imagenes\registry_editor-48.png" />
+    <Content Include="Imagenes\remove_user-64.png" />
+    <Content Include="Imagenes\right_round-48.png" />
+    <Content Include="Imagenes\save-48.png" />
+    <Content Include="Imagenes\save_as-48.png" />
+    <Content Include="Imagenes\search-32.png" />
+    <Content Include="Imagenes\share_point-48.png" />
+    <Content Include="Imagenes\show_property-48.png" />
+    <Content Include="Imagenes\slr_body-32.png" />
+    <Content Include="Imagenes\slr_body-64.png" />
+    <Content Include="Imagenes\slr_camera-128.png" />
+    <Content Include="Imagenes\slr_camera2-128.png" />
+    <Content Include="Imagenes\splash-screen2.png" />
+    <Content Include="Imagenes\SplashScreen.jpg" />
+    <Content Include="Imagenes\SplashScreen2.jpg" />
+    <Content Include="Imagenes\SplashScreen4.jpg" />
+    <Content Include="Imagenes\system_information-48.png" />
+    <Content Include="Imagenes\windows8_tablet-64.png" />
+    <Content Include="Imagenes\wipes-64.png" />
+    <Content Include="Imagenes\word-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\BCCR\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
